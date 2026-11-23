@@ -1,10 +1,31 @@
 {
-  "url": "https://github.com/userabuser/disk-reclaim",
-  "license": "",
-  "homepage": "",
-  "depends": "",
-  "version": "1.0.0",
-  "hash": "",
-  "extract_dir": "",
-  "bin": ""
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "1.0.0",
+    "description": "Advanced Windows Drive C: disk reclamation, active workflow monitor, and session churn hunter for developer workstations.",
+    "homepage": "https://github.com/userabuser/disk-reclaim",
+    "license": "Unknown",
+    "suggest": {
+        "PowerShell 7": "pwsh"
+    },
+    "url": "https://raw.githubusercontent.com/userabuser/disk-reclaim/9c266f1fae05f02a9206e7fe465c4df546a4826d/Invoke-DiskReclaim.ps1",
+    "hash": "3459f9d0bb7b24b85d7194b97cac65d8df4bf7559072661fa9ebb62a0b8debd3",
+    "bin": [
+        [
+            "Invoke-DiskReclaim.ps1",
+            "disk-reclaim"
+        ],
+        "Invoke-DiskReclaim.ps1"
+    ],
+    "notes": [
+        "Run 'disk-reclaim -Mode Scan' (or 'Invoke-DiskReclaim -Mode Scan') from PowerShell 7 (pwsh) to perform a safe dry-run.",
+        "Requires PowerShell 7+ (pwsh)."
+    ],
+    "checkver": {
+        "url": "https://github.com/userabuser/disk-reclaim/commits/master/Invoke-DiskReclaim.ps1.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
+    },
+    "autoupdate": {
+        "url": "https://raw.githubusercontent.com/userabuser/disk-reclaim/$matchSha/Invoke-DiskReclaim.ps1"
+    }
 }
